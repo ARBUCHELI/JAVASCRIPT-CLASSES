@@ -1,0 +1,24 @@
+# Introduction
+--------------
+
+* JavaScript classes explored
+-----------------------------
+
+We'll explore:
+	Constructors
+	Classes
+	Mixins
+	Hoisting
+	Stric Mode
+	Prototypes
+	Super Method
+	Extend
+
+Classes were introduced in ES6
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
