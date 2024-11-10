@@ -69,6 +69,47 @@ Finally, when you define a class, you can add properties as well as functions, o
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Differences between functions and classes
+-------------------------------------------
+
+	Functions			Classes
+	---------			-------
+	Hoisted				Not hoisted
+	Can be overwritten		Can't be overwritten
+
+
+* Use Case: React Class Component
+---------------------------------
+
+class Clock extends React.Component {
+	render() {
+		return (
+			<div>
+				<h1>Hello, world!</h1>
+				<h2>It is {this.props.date.toLocaleTimeString()}.</h2> 
+			</div>
+		}
+	}
+}
+
+
+* Use Case: React Functional Component
+--------------------------------------
+
+function Welcome(props) {
+	return <h1>Hello, {props.name}</h1>;
+}
+
+
+A STATELESS FUNCTIONAL COMPONENT IS A PURE FUNCTION.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
