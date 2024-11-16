@@ -9,6 +9,7 @@ class Car {
         return `This car has ${this.doors} doors, a ${this.engine} and a beautiful ${this.color} color!`;
     }
 
+    // This is the static method
     static totalDoors(car1, car2) {
         const doors1 = car1.doors;
         const doors2 = car2.doors;
