@@ -138,6 +138,50 @@ function sayHi() {
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Strict mode with classes explained
+------------------------------------
+WHEN YOU DECLARE A CLASS IS AUTOMATICALLY IN STRICT MODE, AND ALSO ALL ITS PROPERTIES AND METHODS YOU CREATE FOR IT.
+
+"use strict";
+
+// Assignment to a non-writable global
+undefined = 5; // TypeError
+Infinity = 5; // TypeError
+
+// Assignment to a non-writable property
+const obj1 = {};
+Object.defineProperty(obj1, "x", { value: 42, writable: false });
+obj1.x = 9; // TypeError
+
+// Assignment to a getter-only property
+const obj2 = {
+  get x() {
+    return 17;
+  },
+};
+obj2.x = 5; // TypeError
+
+// Assignment to a new property on a non-extensible object
+const fixed = {};
+Object.preventExtensions(fixed);
+fixed.newProp = "ohai"; // TypeError
+
+
+STRICT MODE IS A MODE THAT IMPROVES THE QUALITY OF JAVASCRIPT PROGRAMMING PRACTICES, FOR EXAMPLE IT ADDS SOME ERRORS AS THROW ERRORS THAT WERE SILENT BEFORE.
+
+Strict mode makes several changes to normal JavaScript semantics:
+
+Eliminates some JavaScript silent errors by changing them to throw errors.
+Fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+Prohibits some syntax likely to be defined in future versions of ECMAScript.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
