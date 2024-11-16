@@ -106,6 +106,44 @@ A STATELESS FUNCTIONAL COMPONENT IS A PURE FUNCTION.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Hoisting explained with classes
+---------------------------------
+THIS CODE WON'T WORK.  CLASSES CAN'T BE HOISTED
+
+const cx5 = new Car(4, 'V6', 'Grey');
+
+console.log(cx5);
+console.log(cx5.carStats());
+
+class Car {
+    constructor(doors, engine, color) {
+        this.doors = doors;
+        this.engine = engine;
+        this.color = color;
+    }
+
+    carStats() {
+        return `This car has ${this.doors} doors, a ${this.engine} and a beautiful ${this.color} color!`;
+    }
+}
+
+THIS CODE WILL WORK, BECAUSE FUNCTIONS DO CAN BE HOISTED
+
+sayHi();
+
+function sayHi() {
+    return console.log('Hello this function can be called anywhere!');
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
