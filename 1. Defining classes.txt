@@ -222,6 +222,53 @@ sayHi();
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Prototype methods explained and usage
+---------------------------------------
+Because a class is a prototype in itself, we inherit all of its methods.
+
+class Car {
+    constructor(doors, engine, color) {
+        this.doors = doors;
+        this.engine = engine;
+        this.color = color;
+    }
+
+    carStats() {
+        return `This car has ${this.doors} doors, a ${this.engine} and a beautiful ${this.color} color!`;
+    }
+
+    static totalDoors(car1, car2) {
+        const doors1 = car1.doors;
+        const doors2 = car2.doors;
+
+        return doors1 + doors2;
+    }
+}
+
+const cx5 = new Car(4, 'V6', 'Grey');
+const civic = new Car(3, 'V4', 'Blue');
+
+console.log(cx5);
+console.log(cx5.carStats());
+// console.log(civic);
+// console.log(civic.carStats());
+// console.log(Car.totalDoors(cx5, civic));
+
+If we check the console in the web browser, we can see that if we click in the prototype we have other methods that we have access to:
+
+[[Prototype]]: ObjectcarStats: ƒ carStats()constructor: class Car[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+
+
+	FOR EXAMPLE WE COULD DO THIS:
+
+cx5.doors.toString()
+
+	SO BASICALLY WHEN WE ARE ACTUALLY IN THE CLASS, WE ARE USING THE OLD PROTOTYPE OBJECT, AND WE HAVE ACCESS TO ALL ITS METHODS INSIDE OF IT.
+
+	
+
+
+
 
 
 
