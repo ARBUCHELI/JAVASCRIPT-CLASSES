@@ -4,6 +4,137 @@
 * Introducion to constructors
 -----------------------------
 
+Constructors are part of the syntax of a class.
+
+If you don't include a constructor, it will be generated for you.
+
+You can only add one constructor per class.
+
+
+* Constructors
+--------------
+
+class Car {
+	constructor(doors, engine, color) {
+		this.doors = doors;
+		this.engine = engine;
+		this.color = color;
+	}
+}
+
+
+const cx5 = new Car(4, 'V6', 'grey');
+
+
+	A CONSTRUCTOR IS A METHOD THAT CRETES AN OBJECT, WHEN A NEW INSTANCE OF THE CLASS IS CREATED.
+
+	ALSO WHEN WE WORK WITH CLASSES WE CAN USE THE KEYWORD SUPER, WHICH ALLOWS TO CALL THE METHODS OF A PARENT CLASS.
+
+
+* Super Keyword
+---------------
+
+class SUV extends Car {
+	constructor(doors, engine, color, carStats) {
+		super(doors, engine, color, carStats);
+	}
+}
+
+
+const cx5 = new SUV(4, 'V6', 'grey');
+
+console.log(cx5);
+console.log(cx5.carStats());
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Constructor and super usage
+-----------------------------
+
+class Car {
+    constructor(doors, engine, color) {
+        this.doors = doors;
+        this.engine = engine;
+        this.color = color;
+    }
+
+    carStats() {
+        return `This car has ${this.doors} doors, a ${this.engine} and a beautiful ${this.color} color!`;
+    }
+
+    static totalDoors(car1, car2) {
+        const doors1 = car1.doors;
+        const doors2 = car2.doors;
+
+        return doors1 + doors2;
+    }
+}
+
+class SUV extends Car {
+    constructor(doors, engine, color, brand, carStats) {
+        super(doors, engine, color, carStats);
+        this.brand = brand;
+        this.wheels = 4; ---> DEFAULT VALUE
+        this.ac = true;
+    }
+
+    myBrand() {
+        return console.log(`This SUV is a ${this.brand}`); 
+    }
+}
+
+const cx5 = new SUV(4, 'V6', 'Grey', 'mazda');
+const civic = new Car(3, 'V4', 'Blue');
+
+console.log(cx5);
+console.log(cx5.carStats());
+console.log(cx5.myBrand());
+// console.log(civic);
+// console.log(civic.carStats());
+// console.log(Car.totalDoors(cx5, civic));
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
