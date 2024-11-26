@@ -1,0 +1,5 @@
+# 3. Extends and Mix-Ins
+------------------------
+
+* Introduction to extends and usage
+-----------------------------------
