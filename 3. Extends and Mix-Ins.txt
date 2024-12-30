@@ -90,10 +90,94 @@ export default Button;
 
 * Introduction to mix-ins and usage
 -----------------------------------
+When you want to extend a class and create a new one, you can only extend one at a time. And in most cases, that will be enough. 
+
+But sometimes, you might need to extend more than one class into a single class. 
+
+This is where mixins are useful. As for the Gang of Four, this is one pattern where we favor composition over inheritance. 
+
+With extends, we inherit from the parent class, with mixins, we compose into a new class. 
+
+Some use cases could be where you implement specific methods as part of a class and others into another. And then when you need to create a new class, which will include all these methods, mixins would be your solution to do so. 
+
+There are multiple ways to add mixins into your class, but let me demonstrate a simple way of doing so. 
+
+Also, be wary of using mixins in your everyday life as a developer, as they sometimes add complexity, and in some communities, like React, are frowned upon. 
+
+This is, in a way, academic. So you'll understand what they are, but use them with caution. All right. So let's go ahead and create a method at the top here. 
+
+app.js
+------
+//This is a method
+let mixin = {
+    madeIn() {
+        console.log('This car was made this year');
+    } 
+}
+
+//This is the mixin itself
+let carMixin = {
+    __proto__: mixin,
+
+    madeIn() {
+        super.madeIn();
+    }
+};
+
+class Car {
+    constructor(doors, engine, color) {
+        this.doors = doors;
+        this.engine = engine;
+        this.color = color;
+    }
+
+    carStats() {
+        return `This car has ${this.doors} doors, a ${this.engine} and a beautiful ${this.color} color!`;
+    }
+
+    static totalDoors(car1, car2) {
+        const doors1 = car1.doors;
+        const doors2 = car2.doors;
+
+        return doors1 + doors2;
+    }
+}
+
+class SUV extends Car {
+    constructor(doors, engine, color, carStats) {
+        super(doors, engine, color, carStats);
+        this._brand = 'No brand yet';
+        this.wheels = 4;
+        this.ac = true;
+
+        // assign mixin (has to be in the constructor)
+        Object.assign(this, carMixin);
+    }
+
+    get getBrand() {
+        return this._brand;
+    }
+
+    set setBrand(newBrand) {
+        this._brand = newBrand;
+    }
+
+    myBrand() {
+        return console.log(`This SUV is a ${this.brand}`); 
+    }
+}
+
+const cx5 = new SUV(4, 'V6', 'Grey');
+// const civic = new Car(3, 'V4', 'Blue');
+
+console.log(cx5.getBrand);
+cx5.setBrand = 'mazda';
+console.log(cx5.madeIn());
 
 
-
-
+// console.log(civic);
+// console.log(civic.carStats());
+// console.log(Car.totalDoors(cx5, civic));
 
 
 

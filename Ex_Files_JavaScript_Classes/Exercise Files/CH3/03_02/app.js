@@ -1,9 +1,11 @@
+//This is a method
 let mixin = {
     madeIn() {
         console.log('This car was made this year');
     } 
 }
 
+//This is the mixin itself
 let carMixin = {
     __proto__: mixin,
 
@@ -38,7 +40,7 @@ class SUV extends Car {
         this.wheels = 4;
         this.ac = true;
 
-        // assign mixin
+        // assign mixin (has to be in the constructor)
         Object.assign(this, carMixin);
     }
 
