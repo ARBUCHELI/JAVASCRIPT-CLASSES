@@ -1,0 +1,11 @@
+# Conclusion
+------------
+
+* What's next?
+--------------
+. Expand Your JavaScript Knowledge
+
+. Practice with React --> Great JavaScript library for practice
+
+
+
